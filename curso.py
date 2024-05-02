@@ -196,6 +196,23 @@ class Curso:
         return notaMasRecurrente
     
     def CalcularNota(self):
+        notaMedia=len(self.__notas)/2
+        notaMenor = 0
+        for nota in self.__notas:
+            calcular=0
+            for nota2 in self.__notas:
+                if nota2 == nota:
+                    calcular+=1
+            
+            if (notaMedia < calcular)or(notaMedia<=(calcular+1)):
+                notaMenor=nota
+            elif (notaMedia<=(calcular-1)):
+                notaMenor=nota
+            else:
+                notaMenor =-1
+        return notaMenor
+            
+    def CalcularNota(self):
         notaMedia=0
         cantidad = (len(self.__notas)/2)
         for nota in self.__notas:
@@ -203,9 +220,8 @@ class Curso:
             for nota2 in self.__notas:
                 if nota2 == nota:
                     calcular+=1
-                
+
             if cantidad == nota:
                 notaMedia = nota
-                notaMedia >= self.__notas
+                notaMedia <= calcular
         return notaMedia
-            
